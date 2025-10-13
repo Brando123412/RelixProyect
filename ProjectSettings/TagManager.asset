@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Obstaculo
+  - PowerUp
+  - Tunel
+  - Points
+  - Suelo
+  - Tarea
+  - NewFilter
+  - Tarea2
+  - Tarea3
+  - Final
   layers:
   - Default
   - TransparentFX
@@ -12,7 +21,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - Obstaculo
   - 
   - 
   - 

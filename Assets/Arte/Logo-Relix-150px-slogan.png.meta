@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: 924fe9fa57b4aa042b633c759a7bea5a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6830953288700052347
+    second: Logo-Relix-150px-slogan_0
+  - first:
+      213: 3194662485931171505
+    second: Logo-Relix-150px-slogan_1
+  - first:
+      213: -2847672224193873840
+    second: Logo-Relix-150px-slogan_2
+  - first:
+      213: 1561487460223315946
+    second: Logo-Relix-150px-slogan_3
+  - first:
+      213: -6268293131437961969
+    second: Logo-Relix-150px-slogan_4
+  - first:
+      213: 3408370191922404506
+    second: Logo-Relix-150px-slogan_5
+  - first:
+      213: -4146138618635355908
+    second: Logo-Relix-150px-slogan_6
+  - first:
+      213: 6716261068367988213
+    second: Logo-Relix-150px-slogan_7
+  - first:
+      213: 7692511557753393022
+    second: Logo-Relix-150px-slogan_8
+  - first:
+      213: 2767831185924124472
+    second: Logo-Relix-150px-slogan_9
+  - first:
+      213: 5125735762807284479
+    second: Logo-Relix-150px-slogan_10
+  - first:
+      213: 992940810876282880
+    second: Logo-Relix-150px-slogan_11
+  - first:
+      213: -4520167481475302417
+    second: Logo-Relix-150px-slogan_12
+  - first:
+      213: -4391958430922937715
+    second: Logo-Relix-150px-slogan_13
+  - first:
+      213: -6601176155054561076
+    second: Logo-Relix-150px-slogan_14
+  - first:
+      213: -7498713220528026320
+    second: Logo-Relix-150px-slogan_15
+  - first:
+      213: -7128000354105363090
+    second: Logo-Relix-150px-slogan_16
+  - first:
+      213: -554880285964574678
+    second: Logo-Relix-150px-slogan_17
+  - first:
+      213: -7477783113619864955
+    second: Logo-Relix-150px-slogan_18
+  - first:
+      213: -6524094229357046173
+    second: Logo-Relix-150px-slogan_19
+  - first:
+      213: -5024607368022164809
+    second: Logo-Relix-150px-slogan_20
+  - first:
+      213: -7108921587060657287
+    second: Logo-Relix-150px-slogan_21
+  - first:
+      213: -5057739853558900447
+    second: Logo-Relix-150px-slogan_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 13
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73c04af2db6cce50800000000000000
+      internalID: 6830953288700052347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 13
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be913bda98b55c20800000000000000
+      internalID: 3194662485931171505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 13
+        width: 11
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0587d2023390b78d0800000000000000
+      internalID: -2847672224193873840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 38
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef66db62948ba510800000000000000
+      internalID: 1561487460223315946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_4
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 13
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d8e989b9c8209a0800000000000000
+      internalID: -6268293131437961969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 13
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9c909891a6fc4f20800000000000000
+      internalID: 3408370191922404506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_6
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 13
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf8f5beb4e4f576c0800000000000000
+      internalID: -4146138618635355908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f50cde7bd3f43d50800000000000000
+      internalID: 6716261068367988213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f4a7e418a41ca60800000000000000
+      internalID: 7692511557753393022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1
+        width: 34
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f614b8ccf496620800000000000000
+      internalID: 2767831185924124472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_10
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff2e4aad485422740800000000000000
+      internalID: 5125735762807284479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_11
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 1
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008e44b1862a7cd00800000000000000
+      internalID: 992940810876282880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_12
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb746ddf932541c0800000000000000
+      internalID: -4520167481475302417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_13
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8a6e80a311ac03c0800000000000000
+      internalID: -4391958430922937715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_14
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8a132f249e364a0800000000000000
+      internalID: -6601176155054561076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_15
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 1
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03dc6e94e083fe790800000000000000
+      internalID: -7498713220528026320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_16
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 1
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65f0b69171441d90800000000000000
+      internalID: -7128000354105363090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_17
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20e63ed15bac48f0800000000000000
+      internalID: -554880285964574678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_18
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 582064d80e3993890800000000000000
+      internalID: -7477783113619864955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_19
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3665ff15dd2c575a0800000000000000
+      internalID: -6524094229357046173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba7a356832054ab0800000000000000
+      internalID: -5024607368022164809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_21
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973b4233b79085d90800000000000000
+      internalID: -7108921587060657287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo-Relix-150px-slogan_22
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1291946766c4fc9b0800000000000000
+      internalID: -5057739853558900447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Logo-Relix-150px-slogan_0: 6830953288700052347
+      Logo-Relix-150px-slogan_1: 3194662485931171505
+      Logo-Relix-150px-slogan_10: 5125735762807284479
+      Logo-Relix-150px-slogan_11: 992940810876282880
+      Logo-Relix-150px-slogan_12: -4520167481475302417
+      Logo-Relix-150px-slogan_13: -4391958430922937715
+      Logo-Relix-150px-slogan_14: -6601176155054561076
+      Logo-Relix-150px-slogan_15: -7498713220528026320
+      Logo-Relix-150px-slogan_16: -7128000354105363090
+      Logo-Relix-150px-slogan_17: -554880285964574678
+      Logo-Relix-150px-slogan_18: -7477783113619864955
+      Logo-Relix-150px-slogan_19: -6524094229357046173
+      Logo-Relix-150px-slogan_2: -2847672224193873840
+      Logo-Relix-150px-slogan_20: -5024607368022164809
+      Logo-Relix-150px-slogan_21: -7108921587060657287
+      Logo-Relix-150px-slogan_22: -5057739853558900447
+      Logo-Relix-150px-slogan_3: 1561487460223315946
+      Logo-Relix-150px-slogan_4: -6268293131437961969
+      Logo-Relix-150px-slogan_5: 3408370191922404506
+      Logo-Relix-150px-slogan_6: -4146138618635355908
+      Logo-Relix-150px-slogan_7: 6716261068367988213
+      Logo-Relix-150px-slogan_8: 7692511557753393022
+      Logo-Relix-150px-slogan_9: 2767831185924124472
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

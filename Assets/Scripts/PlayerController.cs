@@ -1,84 +1,57 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Configuración del Jugador")]
-    [SerializeField] private float fuerzaSalto = 10f;
-    [SerializeField] private int vidasIniciales = 2;
+    [Header("Movimiento")]
+    public float fuerzaSalto = 7f;
+    public float distanciaRaycastObstaculo = 0.4f;
+    public LayerMask capaObstaculo;
 
-    [Header("Verificación de Suelo (Raycast)")]
-    [SerializeField] private Transform puntoVerificacionSuelo;
-    [SerializeField] private float distanciaRaycastSuelo = 0.3f;
-    [SerializeField] private LayerMask capaSuelo;
+    [Header("Vida / PowerUp")]
+    public float duracionInmortalidad = 3f;
 
-    [Header("UI")]
-    [SerializeField] private Text textoPuntuacion;
-    [SerializeField] private Image[] iconosVidas;
+    [Header("Efectos visuales")]
+    public ParticleSystem particulaInmortalidad; // Partícula que se activa durante la inmortalidad
+    public SpriteRenderer spriteRenderer;        // Sprite del jugador
+    public Color colorNormal = Color.white;
+    public Color colorInmortal = Color.magenta;
 
     private Rigidbody2D rb;
-    private bool estaEnSuelo;
-    private int vidasActuales;
-    private float puntuacion;
-    private bool juegoTerminado;
+    private Collider2D col;
+    private bool estaEnSuelo = false;
+    private bool estaEnTunel = false;
+    [SerializeField] bool esInmortal = false;
+    private Collider2D obstaculoActual;
 
-    // Propiedades públicas
-    public int Vidas => vidasActuales;
-    public float Puntuacion => puntuacion;
-    public bool IsGameOver => juegoTerminado;
+    [SerializeField] GameObject tarea2, tarea3;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
 
-        if (rb == null)
-        {
-            Debug.LogError("Falta Rigidbody2D en el jugador.");
-            enabled = false;
-            return;
-        }
-        if (puntoVerificacionSuelo == null)
-        {
-            Debug.LogError("Debes asignar el 'puntoVerificacionSuelo' en el inspector.");
-            enabled = false;
-            return;
-        }
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        vidasActuales = vidasIniciales;
-        puntuacion = 0;
-        ActualizarUI();
+        if (particulaInmortalidad != null)
+            particulaInmortalidad.Stop();
     }
 
     void Update()
     {
-        if (juegoTerminado) return;
+        DetectarObstaculoDebajo();
 
-        // --- Chequear suelo con Raycast ---
-        RaycastHit2D hit = Physics2D.Raycast(
-            puntoVerificacionSuelo.position,
-            Vector2.down,
-            distanciaRaycastSuelo,
-            capaSuelo
-        );
-        estaEnSuelo = (hit.collider != null);
+        // --- Input para saltar ---
+        bool saltoInput = Input.GetButtonDown("Jump");
+        bool clickInput = Input.GetMouseButtonDown(0);
+        bool touchInput = Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
 
-        // --- Salto ---
-        if (Input.GetButtonDown("Jump") && estaEnSuelo)
+        if ((saltoInput || clickInput || touchInput) && estaEnSuelo && !estaEnTunel)
         {
             Saltar();
         }
-
-        // --- Puntuación ---
-        puntuacion += Time.deltaTime * 10f;
-        ActualizarPuntuacionUI();
-    }
-
-    void FixedUpdate()
-    {
-        if (juegoTerminado) return;
-
-        // Sin movimiento horizontal propio
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 
     private void Saltar()
@@ -86,61 +59,173 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void DetectarObstaculoDebajo()
     {
-        if (juegoTerminado) return;
+        Vector2 origen = new Vector2(transform.position.x, col.bounds.min.y);
+        Vector2 direccion = Vector2.down;
 
-        if (collision.gameObject.CompareTag("Obstaculo"))
+        RaycastHit2D hit = Physics2D.Raycast(origen, direccion, distanciaRaycastObstaculo, capaObstaculo);
+
+        if (hit.collider != null)
         {
-            RecibirDano();
+            Collider2D obstaculo = hit.collider;
+            if (obstaculo != obstaculoActual && !estaEnSuelo)
+            {
+                RestaurarObstaculoAnterior();
+                obstaculoActual = obstaculo;
+                obstaculo.isTrigger = false;
+                estaEnSuelo = true;
+            }
+        }
+        else
+        {
+            RestaurarObstaculoAnterior();
+            estaEnSuelo = false;
+        }
+
+        Debug.DrawRay(origen, direccion * distanciaRaycastObstaculo, Color.red);
+    }
+
+    private void RestaurarObstaculoAnterior()
+    {
+        if (obstaculoActual != null)
+        {
+            obstaculoActual.isTrigger = true;
+            obstaculoActual = null;
         }
     }
 
-    public void RecibirDano()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (juegoTerminado) return;
+        if (collision.collider.CompareTag("Suelo"))
+            estaEnSuelo = true;
 
-        vidasActuales--;
-        ActualizarUI();
-
-        if (vidasActuales <= 0) GameOver();
-        else Debug.Log("Vida perdida. Restantes: " + vidasActuales);
-    }
-
-    private void ActualizarPuntuacionUI()
-    {
-        if (textoPuntuacion != null)
-            textoPuntuacion.text = "PUNTAJE: " + Mathf.FloorToInt(puntuacion);
-    }
-
-    private void ActualizarUI()
-    {
-        ActualizarPuntuacionUI();
-        for (int i = 0; i < iconosVidas.Length; i++)
+        if (collision.collider.CompareTag("Obstaculo") && !esInmortal)
         {
-            if (iconosVidas[i] != null)
-                iconosVidas[i].enabled = (i < vidasActuales);
+            Vector2 normal = collision.contacts[0].normal;
+            bool golpeDesdeArriba = normal.y > 0.5f;
+            if (!golpeDesdeArriba)
+                RecibirDano();
         }
     }
 
-    private void GameOver()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        juegoTerminado = true;
-        Debug.Log("¡Juego Terminado! Puntaje final: " + Mathf.FloorToInt(puntuacion));
-
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0;
-        rb.isKinematic = true;
+        if (collision.collider.CompareTag("Suelo"))
+            estaEnSuelo = false;
     }
 
-    void OnDrawGizmos()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (puntoVerificacionSuelo == null) return;
+        if (collision.CompareTag("Tunel"))
+            estaEnTunel = true;
 
-        Gizmos.color = estaEnSuelo ? Color.green : Color.red;
-        Gizmos.DrawLine(
-            puntoVerificacionSuelo.position,
-            puntoVerificacionSuelo.position + Vector3.down * distanciaRaycastSuelo
-        );
+        if (collision.CompareTag("PowerUp"))
+        {
+            Destroy(collision.gameObject);
+            StartCoroutine(ActivarInmortalidad());
+        }
+
+        if (collision.CompareTag("Points"))
+        {
+            Destroy(collision.gameObject);
+            GameController.Instance.AddScore(10);
+        }
+
+        if (collision.CompareTag("Obstaculo") && !esInmortal)
+        {
+            GameController.Instance.LoseLife();
+        }
+
+        if (collision.CompareTag("Tarea"))
+        {
+            rb.linearVelocity = Vector2.zero;
+            ParticleSystem particulas = collision.GetComponentInChildren<ParticleSystem>();
+            StartCoroutine(RealizarTarea(particulas));
+        }
+        if (collision.CompareTag("Tarea2"))
+        {
+            Time.timeScale = 0f;
+            tarea2.SetActive(true);
+        }
+        if (collision.CompareTag("Tarea3"))
+        {
+            Time.timeScale = 0f;
+            tarea3.SetActive(true);
+        }
+        if (collision.CompareTag("Final"))
+        {
+            GameController.Instance.GameOver();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Tunel"))
+            estaEnTunel = false;
+    }
+
+    private void RecibirDano()
+    {
+        GameController.Instance.LoseLife();
+    }
+
+    // === INMORTALIDAD ===
+    private IEnumerator ActivarInmortalidad()
+    {
+        esInmortal = true;
+        Debug.Log("🟣 Inmortalidad activada!");
+
+        // Activar partículas
+        if (particulaInmortalidad != null)
+            particulaInmortalidad.Play();
+
+        // Iniciar parpadeo de color
+        StartCoroutine(ParpadearColor());
+
+        yield return new WaitForSeconds(duracionInmortalidad);
+
+        // Fin del efecto
+        esInmortal = false;
+
+        if (particulaInmortalidad != null)
+            particulaInmortalidad.Stop();
+
+        if (spriteRenderer != null)
+            spriteRenderer.color = colorNormal;
+
+        Debug.Log("⚪ Inmortalidad terminada!");
+    }
+
+    private IEnumerator ParpadearColor()
+    {
+        float velocidadCambio = 1.5f; // velocidad del parpadeo
+        float t = 0f;
+
+        while (esInmortal)
+        {
+            t += Time.deltaTime * velocidadCambio;
+            float factor = (Mathf.Sin(t * Mathf.PI) + 1f) / 2f; // valor entre 0 y 1
+            spriteRenderer.color = Color.Lerp(colorNormal, colorInmortal, factor);
+            yield return null;
+        }
+    }
+
+    // === TAREAS ===
+    private IEnumerator RealizarTarea(ParticleSystem value)
+    {
+        estaEnTunel = true;
+
+        TaskUI.Instance.MostrarPanel(() =>
+        {
+            Debug.Log("Tarea completada!");
+            estaEnTunel = false;
+        });
+
+        while (estaEnTunel)
+            yield return null;
+
+        GameController.Instance.AddScore(40);
+        value.Stop();
     }
 }
