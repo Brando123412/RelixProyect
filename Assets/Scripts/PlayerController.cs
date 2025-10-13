@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D obstaculoActual;
 
     [SerializeField] GameObject tarea2, tarea3;
+    [SerializeField] GameObject tarea2_2, tarea3_3;
 
     void Start()
     {
@@ -153,6 +154,16 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
             tarea3.SetActive(true);
         }
+        if (collision.CompareTag("Tarea2.2"))
+        {
+            Time.timeScale = 0f;
+            tarea2_2.SetActive(true);
+        }
+        if (collision.CompareTag("Tarea3.3"))
+        {
+            Time.timeScale = 0f;
+            tarea3_3.SetActive(true);
+        }
         if (collision.CompareTag("Final"))
         {
             GameController.Instance.GameOver();
@@ -174,7 +185,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator ActivarInmortalidad()
     {
         esInmortal = true;
-        Debug.Log("🟣 Inmortalidad activada!");
+        Debug.Log("Inmortalidad activada!");
 
         // Activar partículas
         if (particulaInmortalidad != null)
@@ -194,7 +205,7 @@ public class PlayerController : MonoBehaviour
         if (spriteRenderer != null)
             spriteRenderer.color = colorNormal;
 
-        Debug.Log("⚪ Inmortalidad terminada!");
+        Debug.Log("Inmortalidad terminada!");
     }
 
     private IEnumerator ParpadearColor()

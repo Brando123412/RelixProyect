@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        timeElapsed = 0f; // ⏱️ Empezamos desde 0
+        timeElapsed = 0f; //
         UpdateUI();
     }
 
