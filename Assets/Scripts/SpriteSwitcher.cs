@@ -17,7 +17,7 @@ public class SpriteSwitcher : MonoBehaviour
     {
         if (imageA == null || imageB == null)
         {
-            Debug.LogError(" Asigna ambas imágenes en el inspector.");
+            Debug.LogError("Asigna ambas imágenes en el inspector.");
             enabled = false;
             return;
         }
@@ -29,7 +29,8 @@ public class SpriteSwitcher : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
+        // Usamos unscaledDeltaTime para ignorar el timeScale
+        timer += Time.unscaledDeltaTime;
 
         if (timer >= switchInterval)
         {

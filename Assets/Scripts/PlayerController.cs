@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject tarea2, tarea3;
     [SerializeField] GameObject tarea2_2, tarea3_3;
+    [SerializeField] GameObject damage;
 
+    [SerializeField] private Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +55,38 @@ public class PlayerController : MonoBehaviour
         {
             Saltar();
         }
+        ActualizarAnimaciones();
     }
+    private void ActualizarAnimaciones()
+    {
+        if (animator == null) return;
+
+        if (!estaEnSuelo)
+        {
+            if (rb.linearVelocity.y > 0.1f)
+            {
+                print("Hola");
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isFalling", false);
+            }
+            else if (rb.linearVelocity.y < -0.1f)
+            {
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", true);
+            }
+            else
+            {
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", false);
+            }
+        }
+        else
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
+        }
+    }
+
 
     private void Saltar()
     {
@@ -101,13 +134,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Suelo"))
             estaEnSuelo = true;
 
-        if (collision.collider.CompareTag("Obstaculo") && !esInmortal)
-        {
-            Vector2 normal = collision.contacts[0].normal;
-            bool golpeDesdeArriba = normal.y > 0.5f;
-            if (!golpeDesdeArriba)
-                RecibirDano();
-        }
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -133,10 +160,11 @@ public class PlayerController : MonoBehaviour
             GameController.Instance.AddScore(10);
         }
 
-        if (collision.CompareTag("Obstaculo") && !esInmortal)
+        /*if (collision.CompareTag("Obstaculo") && !esInmortal)
         {
+            DamegeVisual();
             GameController.Instance.LoseLife();
-        }
+        }*/
 
         if (collision.CompareTag("Tarea"))
         {
@@ -180,12 +208,23 @@ public class PlayerController : MonoBehaviour
     {
         GameController.Instance.LoseLife();
     }
-
-    // === INMORTALIDAD ===
+    private IEnumerator DamegeVisual()
+    {
+        print("Holaaaa");
+        damage.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        damage.SetActive(false);
+    }
     private IEnumerator ActivarInmortalidad()
     {
         esInmortal = true;
         Debug.Log("Inmortalidad activada!");
+
+        // Guardar velocidad original
+        float velocidadOriginal = InfiniteBackgroundAuto.Instance.scrollSpeed;
+
+        // Aumentar velocidad durante la inmortalidad
+        InfiniteBackgroundAuto.Instance.scrollSpeed = velocidadOriginal * 1.5f;
 
         // Activar partículas
         if (particulaInmortalidad != null)
@@ -196,7 +235,9 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(duracionInmortalidad);
 
-        // Fin del efecto
+        // Volver a la velocidad original
+        InfiniteBackgroundAuto.Instance.scrollSpeed = velocidadOriginal;
+
         esInmortal = false;
 
         if (particulaInmortalidad != null)
@@ -207,6 +248,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Inmortalidad terminada!");
     }
+
 
     private IEnumerator ParpadearColor()
     {
@@ -225,6 +267,7 @@ public class PlayerController : MonoBehaviour
     // === TAREAS ===
     private IEnumerator RealizarTarea(ParticleSystem value)
     {
+        Time.timeScale = 0f;
         estaEnTunel = true;
 
         TaskUI.Instance.MostrarPanel(() =>
@@ -238,5 +281,6 @@ public class PlayerController : MonoBehaviour
 
         GameController.Instance.AddScore(40);
         value.Stop();
+        Time.timeScale = 1f;
     }
 }
